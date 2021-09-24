@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class MarketIQTest extends TestBase {
 
-  //@Test
+  @Test
   public void openMarketIQPage(){
     clickMenuBurger();
     clickMarket();

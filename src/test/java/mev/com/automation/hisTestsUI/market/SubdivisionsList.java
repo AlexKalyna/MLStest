@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 public class SubdivisionsList extends TestBase {
 
- // @Test
+ @Test
   public void openSubdivisionsListPage(){
     clickMenuBurger();
     clickMarket();

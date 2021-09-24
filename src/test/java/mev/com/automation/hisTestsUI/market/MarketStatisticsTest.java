@@ -3,9 +3,9 @@ package mev.com.automation.hisTestsUI.market;
 import mev.com.automation.hisTestsUI.TestBase;
 import org.junit.jupiter.api.Test;
 
-public class MarketStatistics extends TestBase {
+public class MarketStatisticsTest extends TestBase {
 
-  //@Test
+  @Test
   public void openMarketStatisticsPage(){
     clickMenuBurger();
     clickMarket();

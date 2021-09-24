@@ -11,6 +11,7 @@ import org.openqa.selenium.By;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.closeWebDriver;
 
 public class TestBase {
   @BeforeEach
@@ -27,6 +28,7 @@ public class TestBase {
 
   @AfterEach
   public void tearDown() {
+    closeWebDriver();
   }
 
   public void login(String username, String password) {
