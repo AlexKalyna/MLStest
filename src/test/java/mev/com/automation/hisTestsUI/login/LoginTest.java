@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LoginTest extends TestBase {
-   //@Test
+   @Test
   public void LoginSuccessfulCheckTest (){
     String ActualTitle = Selenide.title();
     String ExpectedTitle = "MLS";
