@@ -1,8 +1,7 @@
 package mev.com.automation.hisTestsUI.addEditListing;
 
 import com.codeborne.selenide.SelenideElement;
-import mev.com.automation.hisTestsUI.TestBase;
-import org.junit.jupiter.api.Test;
+import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.openqa.selenium.By;
 
 import java.time.Duration;
