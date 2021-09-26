@@ -1,16 +1,28 @@
 package mev.com.automation.hisTestsUI.addEditListing;
 
-import com.codeborne.selenide.SelenideElement;
 import mev.com.automation.hisTestsUI.testconfigs.TestBase;
-import org.openqa.selenium.By;
-
+import org.junit.jupiter.api.Test;
 import java.time.Duration;
-
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.executeJavaScript;
 
-public class AddListings extends TestBase {
+public class AddListingsTest extends TestBase {
+
+  @Test
+  public void CreateListingWithoutFillingAnyField (){
+    clickMenuBurger();
+    openAddEditListing();
+    clickCreateListing();
+    enterTMK("1-1-1-1-1");
+    clickContinue();
+    clickCreateListingButton();
+    checkListingStatusChangeToHold();
+    clickMaintenance();
+    selectDeleteInMaintenance();
+    clickDeleteInConfirmationWindow();
+  }
+
   //@Test
   public void CreateListingWithSetRequiredFields() {
     clickMenuBurger();
@@ -88,39 +100,6 @@ public class AddListings extends TestBase {
       $(".ng-dirty > .input-container > .ng-untouched").val("test");
       $(".detail-sticky .mls-button").click();*/
   }
-  //@Test
-  public void CreateListingWithoutFillingAnyField (){
-    clickMenuBurger();
-    openAddEditListing();
-    clickCreateListing();
-    enterTMK("1-1-1-1-1");
-    clickContinue();
-    clickCreateListingButton();
-    //SelenideElement listingCreatedMessage =
-    // $(By.xpath("//p[@class = 'message ng-star-inserted']")).shouldBe(visible).getText();
-    //System.out.println($(By.xpath("//p[@class = 'message ng-star-inserted']")).shouldBe(visible).getText());
-    clickMaintenance();
-    selectDeleteInMaintenance();
-    clickDeleteInConfirmationWindow();
-    SelenideElement deleteMessage = $(By.xpath("//p[@class = 'message ng-star-inserted'][contains(text('deleted'))]")).shouldBe(visible);
-    System.out.println("Delete message - "+ deleteMessage);
-
-//p[@class = 'message ng-star-inserted']
-  }
-
-  public void clickDeleteInConfirmationWindow() {
-    $(By.xpath("//button[contains(text(),'delete')]")).shouldBe(visible, Duration.ofSeconds(30)).click();
-  }
-
-  public void selectDeleteInMaintenance() {
-    $(By.xpath("//li[contains(text(),'Delete')]")).click();
-  }
-
-  public void clickMaintenance() {
-    $(By.xpath("//button[@type='button'][contains(.,'Maintenance')]")).shouldBe(visible, Duration.ofSeconds(30)).click();
-  }
-
-
 
 }
 

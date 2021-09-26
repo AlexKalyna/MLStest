@@ -1,7 +1,7 @@
 package mev.com.automation.hisTestsUI.login;
 
 import com.codeborne.selenide.Selenide;
-import mev.com.automation.hisTestsUI.TestBase;
+import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

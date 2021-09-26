@@ -1,4 +1,4 @@
-package mev.com.automation.hisTestsUI;
+package mev.com.automation.hisTestsUI.testconfigs;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
@@ -10,6 +10,8 @@ import org.openqa.selenium.By;
 
 import java.time.Duration;
 
+import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
@@ -62,11 +64,12 @@ public class TestBase {
   }
 
   public void clickMenuBurger() {
-    $(By.xpath("//mls-main-header/div[1]/div[1]/div[1]/*[1]")).shouldBe(Condition.visible,Duration.ofSeconds(30)).click();
+   // $(By.xpath("//mls-main-header/div[1]/div[1]/div[1]/*[1]")).shouldBe(Condition.visible,Duration.ofSeconds(30)).click();
+    $(By.xpath("//div[@class = 'hamburger animate-scale']/*")).shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
 
   }
   public void clickCreateListing() {
-    $(By.xpath("//body/app-root[1]/main[1]/mls-add-edit[1]/mls-router-tabs[1]/main[1]/section[2]/mls-my-listings[1]/mls-aside-wrapper[1]/main[1]/mls-router-tabs-bottom[1]/div[1]/div[1]/mls-add-listing-button[1]/mls-custom-dropdown[1]/div[1]/mls-button[1]/button[1]")).click();
+    $(By.xpath("//button[text() = 'Add Listing ']")).click();
     $(".create-listing").shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
   }
 
@@ -82,5 +85,23 @@ public class TestBase {
   public void clickContinue() {
     $(".continue-button > .mls-button").shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
   }
+
+  public void checkListingStatusChangeToHold() {
+    $(By.xpath("//p[@class = 'message ng-star-inserted']")).shouldBe(visible, Duration.ofSeconds(30));
+    $(By.xpath("//div[text() = 'Status: ']/span")).shouldHave(text("Hold"));
+  }
+
+  public void clickDeleteInConfirmationWindow() {
+    $(By.xpath("//button[contains(text(),'delete')]")).shouldBe(visible, Duration.ofSeconds(30)).click();
+  }
+
+  public void selectDeleteInMaintenance() {
+    $(By.xpath("//li[contains(text(),'Delete')]")).click();
+  }
+
+  public void clickMaintenance() {
+    $(By.xpath("//button[@type='button'][contains(.,'Maintenance')]")).shouldBe(visible, Duration.ofSeconds(30)).click();
+  }
+
 
 }

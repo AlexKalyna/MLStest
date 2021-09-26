@@ -1,7 +1,7 @@
 package mev.com.automation.hisTestsUI.market;
 
 import com.codeborne.selenide.Condition;
-import mev.com.automation.hisTestsUI.TestBase;
+import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 

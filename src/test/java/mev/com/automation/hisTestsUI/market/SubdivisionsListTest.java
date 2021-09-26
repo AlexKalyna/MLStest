@@ -1,6 +1,6 @@
 package mev.com.automation.hisTestsUI.market;
 
-import mev.com.automation.hisTestsUI.TestBase;
+import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.junit.jupiter.api.Test;
 
 public class SubdivisionsListTest extends TestBase {
