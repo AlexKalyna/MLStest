@@ -7,8 +7,8 @@ public class SubdivisionsListTest extends TestBase {
 
  @Test
   public void openSubdivisionsListPage(){
-    clickMenuBurger();
-    clickMarket();
-    openSubdivisionsList();
+    app.clickMenuBurger();
+    app.clickMarket();
+    app.openSubdivisionsList();
   }
 }

@@ -3,9 +3,6 @@ package mev.com.automation.hisTestsUI.testconfigs;
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.openqa.selenium.By;
 
 import java.time.Duration;
@@ -15,11 +12,12 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 
-public class TestBase {
-  @BeforeEach
-  public void setup(){
+public class ApplicationManager {
+
+  public void init() {
     Configuration.browser = "chrome";
     Configuration.startMaximized = true;
+
     String baseUrl = "https://dev.mls.hiinfo.com/";
     //https://live.mls.hiinfo.com/ - Live
 
@@ -28,8 +26,7 @@ public class TestBase {
     //login("MLSTest06", "pwd@mlstest06"); - Live
   }
 
-  @AfterEach
-  public void tearDown() {
+  public void stop() {
     closeWebDriver();
   }
 
@@ -68,6 +65,7 @@ public class TestBase {
     $(By.xpath("//div[@class = 'hamburger animate-scale']/*")).shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
 
   }
+
   public void clickCreateListing() {
     $(By.xpath("//button[text() = 'Add Listing ']")).click();
     $(".create-listing").shouldBe(Condition.visible, Duration.ofSeconds(30)).click();
@@ -102,6 +100,4 @@ public class TestBase {
   public void clickMaintenance() {
     $(By.xpath("//button[@type='button'][contains(.,'Maintenance')]")).shouldBe(visible, Duration.ofSeconds(30)).click();
   }
-
-
 }

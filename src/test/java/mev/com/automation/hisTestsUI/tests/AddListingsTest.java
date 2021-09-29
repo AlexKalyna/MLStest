@@ -2,68 +2,71 @@ package mev.com.automation.hisTestsUI.addEditListing;
 
 import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
+
 import java.time.Duration;
+
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.executeJavaScript;
+import static com.codeborne.selenide.Selenide.*;
 
 public class AddListingsTest extends TestBase {
 
   @Test
-  public void CreateListingWithoutFillingAnyField (){
-    clickMenuBurger();
-    openAddEditListing();
-    clickCreateListing();
-    enterTMK("1-1-1-1-1");
-    clickContinue();
-    clickCreateListingButton();
-    checkListingStatusChangeToHold();
-    clickMaintenance();
-    selectDeleteInMaintenance();
-    clickDeleteInConfirmationWindow();
+  public void CreateListingWithoutFillingAnyField() {
+    app.clickMenuBurger();
+    app.openAddEditListing();
+    app.clickCreateListing();
+    app.enterTMK("1-1-1-1-1");
+    app.clickContinue();
+    app.clickCreateListingButton();
+    app.checkListingStatusChangeToHold();
+    app.clickMaintenance();
+    app.selectDeleteInMaintenance();
+    app.clickDeleteInConfirmationWindow();
   }
 
-  //@Test
+  @Test
   public void CreateListingWithSetRequiredFields() {
-    clickMenuBurger();
-    openAddEditListing();
-    clickCreateListing();
-    enterTMK("4-3-5-1-216-42");
-    $(".continue-button > .mls-button").shouldBe(visible, Duration.ofSeconds(30)).click();
-    $(".switch-wrapper").shouldBe(visible, Duration.ofSeconds(30)).click();
-    executeJavaScript("window.scrollTo(0,0)");
+    app.clickMenuBurger();
+    app.openAddEditListing();
+    app.clickCreateListing();
+    app.enterTMK("4-3-5-1-216-42");
+    app.clickContinue();
+    $(By.xpath("//div[@class = 'switcher']")).shouldBe(visible, Duration.ofSeconds(30)).click();
+    //executeJavaScript("window.scrollTo(0,0)");
 
 
     //Subtype of Listing
-    $(".ng-star-inserted:nth-child(1) > .form:nth-child(1) > .ng-untouched:nth-child(2) .input").click();
+    $(By.xpath("//label[text() = ' Subtype of Listing ']/following-sibling::mls-input-multi-select")).click();
     $(".item:nth-child(2) .checkbox").shouldBe(visible, Duration.ofSeconds(30)).click();
     $(".focus").click();
 
-    //Price
-    $("mls-listing-basic-section .ng-untouched:nth-child(5) .form > .input").setValue("123456");
 
-    //CSB
-    $("mls-listing-basic-section > .ng-star-inserted:nth-child(1) .ng-untouched:nth-child(6) .input").setValue("6");
+    $(By.xpath("//span[text() = '$']/following-sibling::input")).val("123456");
 
-    // $(".ng-untouched > .ng-dirty").val("3");
-    //Expires date
-    $(".p-calendar > .ng-tns-c28-71").click();
-    $(".ng-tns-c28-71:nth-child(5) > .ng-tns-c28-71:nth-child(5) > .ng-tns-c28-71").click();
-    //$(".focus > .input").click();
+    $(By.xpath("//label[text() = ' CSB ']/following-sibling::*/form/input")).val("6");
 
-    //$(".focus > .input").setValue("h");
-    //$(".option:nth-child(2)").click();
-    $(".form:nth-child(1) > .inputs-container:nth-child(1) > .middle:nth-child(1) .mls-button:nth-child(1) > .mls-button").click();
-    $(".form:nth-child(1) > .inputs-container:nth-child(1) > .middle:nth-child(2) .mls-button:nth-child(1) > .mls-button").click();
-    $(".inputs-container:nth-child(2) > .middle:nth-child(1) .mls-button:nth-child(1) > .mls-button").click();
-     /* $(".ng-invalid:nth-child(6) .input").click();
-      $(".item:nth-child(1) .checkbox").click();
-      $(".focus").click();
-      $(".ng-invalid:nth-child(7) .input").click();
+    $(By.xpath("//label[text() = ' Expires Date ']/following-sibling::mls-input-date")).click();
+    $(".ng-tns-c28-71:nth-child(5) > .ng-tns-c28-71:nth-child(5) > .ng-tns-c28-71").click(); //need to refactor
+
+    $(By.xpath("//label[text() = ' Disclosure Form ']/following-sibling::*/div/mls-button/button")).click();
+
+    $(By.xpath("//label[text() = ' GET? ']/following-sibling::*/div/mls-button/button")).click();
+
+    $(By.xpath("//label[text() = ' Restrictions on Commission ']/following-sibling::mls-input-multi-select")).click();
+
+    Select drpNone = new Select ($(By.xpath("//label[text() = ' Restrictions on Commission ']/following-sibling::mls-input-multi-select"))).selectByValue;
+
+
+
+      /*$(".ng-invalid:nth-child(7) .input").click();
       $(".item:nth-child(3) .checkbox").click();
       $(".focus").click();
+
       $(".ng-tns-c76-74:nth-child(2)").click();
       $(".ng-tns-c76-74:nth-child(3) .ng-star-inserted").click();
+
       $(".form:nth-child(2) > .inputs-container:nth-child(1) > .middle:nth-child(1) .mls-button:nth-child(1) > .mls-button").click();
       $(".inputs-container:nth-child(4) > .middle:nth-child(1) .mls-button:nth-child(1) > .mls-button").click();
       $("mls-property-details-section > .ng-star-inserted:nth-child(4) .ng-untouched:nth-child(1) .input").click();

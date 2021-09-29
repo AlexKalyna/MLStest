@@ -7,8 +7,8 @@ public class MarketStatisticsTest extends TestBase {
 
   @Test
   public void openMarketStatisticsPage(){
-    clickMenuBurger();
-    clickMarket();
-    openMarketStatistics();
+    app.clickMenuBurger();
+    app.clickMarket();
+    app.openMarketStatistics();
   }
 }

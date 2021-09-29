@@ -11,9 +11,9 @@ public class MarketIQTest extends TestBase {
 
   @Test
   public void openMarketIQPage(){
-    clickMenuBurger();
-    clickMarket();
-    openMarketIQ();
+    app.clickMenuBurger();
+    app.clickMarket();
+    app.openMarketIQ();
     checkPageLoading();
   }
 
