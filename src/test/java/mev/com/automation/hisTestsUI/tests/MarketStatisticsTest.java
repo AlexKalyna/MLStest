@@ -1,6 +1,5 @@
-package mev.com.automation.hisTestsUI.market;
+package mev.com.automation.hisTestsUI.tests;
 
-import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.junit.jupiter.api.Test;
 
 public class MarketStatisticsTest extends TestBase {

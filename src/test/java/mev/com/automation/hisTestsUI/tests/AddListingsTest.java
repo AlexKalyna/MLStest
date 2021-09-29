@@ -1,6 +1,5 @@
-package mev.com.automation.hisTestsUI.addEditListing;
+package mev.com.automation.hisTestsUI.tests;
 
-import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
@@ -56,7 +55,7 @@ public class AddListingsTest extends TestBase {
 
     $(By.xpath("//label[text() = ' Restrictions on Commission ']/following-sibling::mls-input-multi-select")).click();
 
-    Select drpNone = new Select ($(By.xpath("//label[text() = ' Restrictions on Commission ']/following-sibling::mls-input-multi-select"))).selectByValue;
+    //Select drpNone = new Select ($(By.xpath("//label[text() = ' Restrictions on Commission ']/following-sibling::mls-input-multi-select"))).selectByValue;
 
 
 

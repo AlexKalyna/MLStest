@@ -1,4 +1,4 @@
-package mev.com.automation.hisTestsUI.testconfigs;
+package mev.com.automation.hisTestsUI.appmanager;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Configuration;
@@ -99,5 +99,9 @@ public class ApplicationManager {
 
   public void clickMaintenance() {
     $(By.xpath("//button[@type='button'][contains(.,'Maintenance')]")).shouldBe(visible, Duration.ofSeconds(30)).click();
+  }
+
+  public void checkPageLoading() {
+    $(By.xpath("//h3[contains(text(),'Market IQ')]")).shouldBe(visible);
   }
 }

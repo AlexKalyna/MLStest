@@ -1,9 +1,6 @@
-package mev.com.automation.hisTestsUI.market;
+package mev.com.automation.hisTestsUI.tests;
 
-import com.codeborne.selenide.Condition;
-import mev.com.automation.hisTestsUI.testconfigs.TestBase;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -14,10 +11,7 @@ public class MarketIQTest extends TestBase {
     app.clickMenuBurger();
     app.clickMarket();
     app.openMarketIQ();
-    checkPageLoading();
+    app.checkPageLoading();
   }
 
-  private void checkPageLoading() {
-    $(By.xpath("//h3[contains(text(),'Market IQ')]")).shouldBe(Condition.visible);
-  }
 }

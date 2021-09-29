@@ -1,11 +1,12 @@
-package mev.com.automation.hisTestsUI.testconfigs;
+package mev.com.automation.hisTestsUI.tests;
 
+import mev.com.automation.hisTestsUI.appmanager.ApplicationManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public class TestBase {
 
-  protected final ApplicationManager app = new ApplicationManager();
+  public ApplicationManager app = new ApplicationManager();
 
   @BeforeEach
   public void setUp(){
