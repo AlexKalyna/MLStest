@@ -1,22 +1,22 @@
 package mev.com.automation.hisTestsUI.tests;
 
 import mev.com.automation.hisTestsUI.appmanager.ApplicationManager;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+
 
 public class TestBase {
 
   public ApplicationManager app = new ApplicationManager();
 
-  @BeforeEach
+  @BeforeMethod
   public void setUp(){
     app.init();
   }
 
-  @AfterEach
+  @AfterMethod
   public void tearDown() {
     app.stop();
   }
-
 
 }

@@ -17,6 +17,7 @@ public class ApplicationManager {
   public void init() {
     Configuration.browser = "chrome";
     Configuration.startMaximized = true;
+    Configuration.timeout = 20000;
 
     String baseUrl = "https://dev.mls.hiinfo.com/";
     //https://live.mls.hiinfo.com/ - Live

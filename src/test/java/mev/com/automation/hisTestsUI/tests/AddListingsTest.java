@@ -1,17 +1,17 @@
 package mev.com.automation.hisTestsUI.tests;
 
-import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.Ignore;
+import org.testng.annotations.Test;
 
 import java.time.Duration;
 
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
 
 public class AddListingsTest extends TestBase {
 
-  @Test
+ @Test
   public void CreateListingWithoutFillingAnyField() {
     app.clickMenuBurger();
     app.openAddEditListing();

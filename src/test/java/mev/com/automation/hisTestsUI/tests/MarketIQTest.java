@@ -1,12 +1,10 @@
 package mev.com.automation.hisTestsUI.tests;
 
-import org.junit.jupiter.api.Test;
-
-import static com.codeborne.selenide.Selenide.$;
+import org.testng.annotations.Test;
 
 public class MarketIQTest extends TestBase {
 
-  @Test
+  //@Test
   public void openMarketIQPage(){
     app.clickMenuBurger();
     app.clickMarket();

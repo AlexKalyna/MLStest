@@ -1,6 +1,6 @@
 package mev.com.automation.hisTestsUI.tests;
 
-import org.junit.jupiter.api.Test;
+import org.testng.annotations.Test;
 
 public class SubdivisionsListTest extends TestBase {
 

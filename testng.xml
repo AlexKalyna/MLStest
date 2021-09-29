@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="/Users/oleksandrkalyna/Documents/MLSTest">
+        <classes>
+            <class name="mev.com.automation.hisTestsUI.tests.AddListingsTest">
+                <methods>
+                    <include name="CreateListingWithoutFillingAnyField"/>
+                    <include name="CreateListingWithSetRequiredFields"/>
+                </methods>
+            </class>
+            <class name="mev.com.automation.hisTestsUI.tests.LoginTest">
+                <methods>
+                    <include name="LoginSuccessfulCheckTest"/>
+                </methods>
+            </class>
+            <class name="mev.com.automation.hisTestsUI.tests.MarketIQTest">
+                <methods>
+                    <include name="openMarketIQPage"/>
+                </methods>
+            </class>
+            <class name="mev.com.automation.hisTestsUI.tests.MarketStatisticsTest">
+                <methods>
+                    <include name="openMarketStatisticsPage"/>
+                </methods>
+            </class>
+            <class name="mev.com.automation.hisTestsUI.tests.SubdivisionsListTest">
+                <methods>
+                    <include name="openSubdivisionsListPage"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
