@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class MarketIQTest extends TestBase {
 
-  //@Test
+  @Test
   public void openMarketIQPage(){
     app.clickMenuBurger();
     app.clickMarket();
