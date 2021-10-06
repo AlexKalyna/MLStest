@@ -1,6 +1,8 @@
 package mev.com.automation.hisTestsUI.tests;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.testng.annotations.Test;
 
 import java.text.SimpleDateFormat;
@@ -44,10 +46,6 @@ public class AddListingsTest extends TestBase {
     $(By.xpath("//p[text()='Attached']/preceding-sibling::mls-checkbox")).click();
     $(By.xpath("//html")).click();
 
-
-//    $(".item:nth-child(2) .checkbox").shouldBe(visible, Duration.ofSeconds(30)).click();
-//    $(".focus").click();
-
     $(By.xpath("//span[text() = '$']/following-sibling::input")).val("123456");
 
     $(By.xpath("//label[text() = ' CSB ']/following-sibling::*/form/input")).val("6");
@@ -55,8 +53,10 @@ public class AddListingsTest extends TestBase {
     $(By.xpath("//label[text() = ' Expires Date ']/following-sibling::mls-input-date")).click();
     $(".ng-tns-c28-71:nth-child(5) > .ng-tns-c28-71:nth-child(5) > .ng-tns-c28-71").click(); //need to refactor
 
+    //$(By.xpath("//label[text() = ' City ']/following-sibling::mls-input-text-auto-suggest/mls-autocomplete/div")).click();
     $(By.xpath("//label[text() = ' City ']/following-sibling::mls-input-text-auto-suggest/mls-autocomplete/div")).click();
-    actions().sendKeys("H");
+    $(By.xpath("//label[text() = ' City ']/following-sibling::mls-input-text-auto-suggest/mls-autocomplete/div/input")).setValue("H");
+    $(By.xpath("//li[@class = 'item option ng-star-inserted' and text() = ' HILO ']")).click();
 
 
 
@@ -69,8 +69,13 @@ public class AddListingsTest extends TestBase {
     $(By.xpath("//p[text()='Court Confirmation']/preceding-sibling::mls-checkbox")).click();
     $(By.xpath("//html")).click();
 
-    $(By.xpath("//label[text() = ' Possession ']/following-sibling::mls-input-single-select/form/p-dropdown/div")).click();
-    $(By.xpath("//span[text()='Negotiable']")).click();
+
+    $(By.xpath("//label[text() = ' Possession ']/following-sibling::mls-input-single-select/form/p-dropdown/div/div/span")).click();
+    $(By.xpath("//span[@class = 'ng-star-inserted' and text()='Negotiable']")).click();
+
+    $(By.xpath("//label[text() = ' Zoning ']/following-sibling::mls-zoning-input/form/p-dropdown/div")).click();
+    $(By.xpath("//span[@class = 'ng-star-inserted' and text()='I-G - Industrial General']")).click();
+
 
     $(By.xpath("//label[text() = ' Power ']/following-sibling::mls-input-multi-select/div")).click();
     $(By.xpath("//p[text()='Overhead']/preceding-sibling::mls-checkbox")).click();
@@ -90,18 +95,6 @@ public class AddListingsTest extends TestBase {
     $(By.xpath("//label[text() = ' Public Remarks Excerpt ']/following-sibling::mls-input-text/form/input")).val("Test Listing " + timeStamp);
 
     $(By.xpath("//label[text() = ' Driving Directions ']/following-sibling::mls-input-text-area/form/div/textarea")).val("Test Listing " + timeStamp);
-
-
-//    SelenideElement element = $(By.xpath("//label[text() = ' Restrictions on Commission ']/following-sibling::mls-input-multi-select"));
-//    actions().keyDown(Keys.ARROW_DOWN).perform();
-    //   dragAndDropBy(element, xOffset, yOffset).perform();
-
-//    Actions keyDown = new Actions(driver);
-//    keyDown.sendKeys(Keys.chord(Keys.DOWN, Keys.DOWN)).perform();
-//    //Select select = new Select($(By.xpath("//label[text() = ' Restrictions on Commission ']/following-sibling::mls-input-multi-select")));
-//    select.selectByVisibleText("None");
-//
-//    Actions action = new Actions (driver);
 
   }
 
